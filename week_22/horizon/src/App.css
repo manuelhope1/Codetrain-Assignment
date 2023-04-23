@@ -1,0 +1,22 @@
+.carousel-inner{
+  height: 600px;
+}
+.carousel-item img{
+  object-fit: contain !important;
+}
+.backG{
+  background: rgb(0, 0, 85);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.About{
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+}
+
+.card-title{
+  font-weight: bolder;
+}
