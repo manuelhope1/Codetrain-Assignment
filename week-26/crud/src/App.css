@@ -1,0 +1,17 @@
+.cardd {
+  margin-bottom: 1rem !important;
+  min-height: 200px !important;
+  border-left-width: 10px !important;
+  border-color: #e66189be !important;
+}
+
+.hh {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 70px;
+  font-weight: 600;
+  background-image: conic-gradient(#559a3c9b, #ee4b2b, #cb3d00);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
