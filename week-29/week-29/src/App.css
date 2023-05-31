@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Playfair:wght@900&display=swap");
+
+body {
+  background-color: black !important;
+}
+
+nav {
+  height: 200px;
+  width: 100%;
+  background: no-repeat url("../assets/minfo2.avif");
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav h1 {
+  color: rgb(254, 254, 254);
+  font-size: 100px;
+  font-family: "Playfair", serif;
+}
+
+.imgg {
+  height: 200px;
+}
+
+.tab {
+  margin: 0;
+  padding: 0;
+}
+
+.byy {
+  font-weight: 700;
+}
+
+.toppp {
+  text-align: center;
+  color: wheat;
+  font-family: "Montserrat", sans-serif;
+}
