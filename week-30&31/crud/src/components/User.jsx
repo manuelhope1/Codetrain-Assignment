@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Col, Card, Button, Modal } from "react-bootstrap";
 import EditUserForm from "./EditUserForm";
+import { deleteNewUser } from "../slice/usersSlice";
+import { useDispatch } from "react-redux";
 
 export default function User(props) {
-  const deleteDetail = (e) => {
+  const dispatch = useDispatch();
+  const user = props.userInfo;
+  const deleteUser = (e) => {
     e.preventDefault();
-    props.deleteInfo(props.userInfo.id);
+    dispatch(deleteNewUser(user.id));
   };
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,11 +22,11 @@ export default function User(props) {
           <Modal.Title>Edit User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <EditUserForm
+          <EditUserForm
             userInfo={props.userInfo}
             editInfo={props.editInfo}
             closeModal={handleClose}
-          /> */}
+          />
         </Modal.Body>
       </Modal>
       <Col md="4" style={{ marginBottom: "10px" }}>
@@ -43,7 +46,7 @@ export default function User(props) {
               </Button>
             </Card.Link>
             <Card.Link href="#">
-              <Button variant="danger" size="sm" onClick={deleteDetail}>
+              <Button variant="danger" size="sm" onClick={deleteUser}>
                 Delete
               </Button>
             </Card.Link>
