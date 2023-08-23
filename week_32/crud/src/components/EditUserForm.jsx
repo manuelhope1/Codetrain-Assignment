@@ -1,42 +1,55 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addNewUser } from "../slice/usersSlice";
-import { v4 } from "uuid";
+import { editNewUser } from "../slice/usersSlice";
 
-const AddUserForm = ({ inputSubmit }) => {
+const EditUserForm = (props) => {
+  const [name, setName] = useState(props.userInfo.name);
+  const [phone, setPhone] = useState(props.userInfo.phone);
+  const [location, setLocation] = useState(props.userInfo.location);
+  const [id] = useState(props.userInfo.id);
+  const user = props.userInfo;
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
-  const id = v4();
+
+  const inputChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
+      case "phone":
+        setPhone(value);
+        break;
+      case "location":
+        setLocation(value);
+        break;
+      default:
+        break;
+    }
+  };
 
   const submitChange = (e) => {
     e.preventDefault();
-    const newUser = {
+    const newData = {
+      id: user.id,
       name,
       phone,
       location,
-      id,
     };
-    dispatch(addNewUser(newUser));
-    setName("");
-    setLocation("");
-    setPhone("");
+    dispatch(editNewUser({ id: user.id, newData }));
+    props.closeModal();
   };
 
   return (
     <Form onSubmit={submitChange}>
-      <h3>Enter contact details</h3>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter name"
           name="name"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
+          onChange={inputChange}
           value={name}
         />
       </Form.Group>
@@ -47,9 +60,7 @@ const AddUserForm = ({ inputSubmit }) => {
           type="text"
           placeholder="Phone number"
           name="phone"
-          onChange={(e) => {
-            setPhone(e.target.value);
-          }}
+          onChange={inputChange}
           value={phone}
         />
       </Form.Group>
@@ -60,9 +71,7 @@ const AddUserForm = ({ inputSubmit }) => {
           type="text"
           placeholder="Location"
           name="location"
-          onChange={(e) => {
-            setLocation(e.target.value);
-          }}
+          onChange={inputChange}
           value={location}
         />
       </Form.Group>
@@ -74,4 +83,4 @@ const AddUserForm = ({ inputSubmit }) => {
   );
 };
 
-export default AddUserForm;
+export default EditUserForm;

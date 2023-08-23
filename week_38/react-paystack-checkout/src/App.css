@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+.bod {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formm {
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.headd {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+
+.payb {
+  background-color: rgb(50, 50, 213);
+  border: none;
+  padding: 10px;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+}
